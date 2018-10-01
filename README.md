@@ -1,2 +1,2 @@
-# ltntp
-Luyện thi Nguyễn Tri Phương
+# ltnbk
+Luyện thi Nguyễn Bỉnh Khiêm
