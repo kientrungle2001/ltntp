@@ -36,70 +36,76 @@
 
 <div id="ontienganh" class="full">
 	<div class="container">
-		<div class="text-center heading mt-2 mb-4 text-white  fs40">
-		Ôn luyện Tiếng anh
+		<div class="text-center heading mt-2 mb-4 text-white">
+			Luyện Tiếng Anh
 		</div>
 	</div>
 	<div class="container">
-		<div class="row" ng-init="selectedEnglishTestPage = 0">
-			<div class="col-12 col-md-2" ng-repeat="test in englishTests" ng-show="inPage($index, selectedEnglishTestPage, 30)">
-				<a href="/test.php?test_id={{test.id}}&category_id=1411">
-					<div class="btn ltth full mb-3 btn-primary">{{translate(test, 'test.name')}} 
-					<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+		<div class="row" ng-init="selectedTestSetPage = 0">
+			<div class="box-thithu bg-white full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
+				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
+				<div class="box-body">
+
+					<div class="link-box text-center" ng-repeat="test in testSet.children | orderBy: 'ordering'">
+						<a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
+							{{translate(test, 'test.name')}}  
+							<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+						</a>
 					</div>
-					
-				</a>
+				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 text-center">
 				<nav aria-label="Navigation">
 					<ul class="pagination justify-content-center">
-						<li class="page-item" ng-repeat="page in range(1, totalPage(englishTests.length, 30), 1)" 
-						ng-click="selectEnglishTestPage(page-1)"
-						ng-class="{'active': selectedEnglishTestPage == page-1}"
+						<li class="page-item" ng-repeat="page in range(1, totalPage(testSets.length, 15), 1)" 
+						ng-click="selectTestSetPage(page-1)"
+						ng-class="{'active': selectedTestSetPage == page-1}"
 						><a href="#" class="page-link" onclick="return false;">{{page}}</a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</div>
-	
-</div>	
+</div>		
 
 
 <!--end practice -->
-<div id="tonghop" class="full">
+<div id="thithu" class="full">
 	<div class="container">
-		<div class="text-center heading mt-2 mb-4 text-white  fs40">
-		Ôn luyện tổng hợp
+		<div class="text-center heading mt-2 mb-4 text-white">
+			Luyện Toán
 		</div>
 	</div>
 	<div class="container">
-		<div class="row" ng-init="selectedTestPage = 0">
-			<div class="col-12 col-md-2" ng-repeat="test in tests" ng-show="inPage($index, selectedTestPage, 30)">
-			<a href="/test.php?test_id={{test.id}}&category_id=1412">
-				<div class="btn ltth full mb-3 btn-primary">{{translate(test, 'test.name')}}
-				<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+		<div class="row" ng-init="selectedTestSetPage = 0">
+			<div class="box-thithu bg-white full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
+				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
+				<div class="box-body">
+
+					<div class="link-box text-center" ng-repeat="test in testSet.children | orderBy: 'ordering'">
+						<a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
+							{{translate(test, 'test.name')}}  
+							<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+						</a>
+					</div>
 				</div>
-				
-			</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 text-center">
 				<nav aria-label="Navigation">
 					<ul class="pagination justify-content-center">
-						<li class="page-item" ng-repeat="page in range(1, totalPage(tests.length, 30), 1)" 
-						ng-click="selectTestPage(page-1)"
-						ng-class="{'active': selectedTestPage == page-1}"
+						<li class="page-item" ng-repeat="page in range(1, totalPage(testSets.length, 15), 1)" 
+						ng-click="selectTestSetPage(page-1)"
+						ng-class="{'active': selectedTestSetPage == page-1}"
 						><a href="#" class="page-link" onclick="return false;">{{page}}</a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</div>
-	
 </div>	
 <img src="/assets/images/background2.png" alt="" class="full" />
 
@@ -109,7 +115,7 @@
 <div id="thithu" class="full">
 	<div class="container">
 		<div class="text-center heading mt-2 mb-4 text-white">
-			Thi thử Nguyễn Bỉnh Khiêm 
+			Luyện Tiếng Anh
 		</div>
 	</div>
 	<div class="container">

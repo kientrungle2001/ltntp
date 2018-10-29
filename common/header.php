@@ -168,7 +168,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/#tonghop">Luyện tổng hợp</a>
+                    <a class="nav-link dropdown-toggle" href="/#tonghop">Luyện Toán</a>
                     <div style="right: 0px !important; left: auto;" class="mega dropdown-menu  p-3">
                         <div class="row pl-3" ng-init="selectedTestPage = 0">
                             <div class="col-12 pl-0 col-md-2" ng-repeat="test in tests" ng-show="inPage($index, selectedTestPage, 30)">
@@ -192,7 +192,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="/#thithu" class="nav-link dropdown-toggle">Thi thử Nguyễn Bỉnh Khiêm</a>
+                    <a href="/#thithu" class="nav-link dropdown-toggle">Luyện Tiếng Việt</a>
                     <div style="right: 0px !important; left: auto;" class="mega dropdown-menu  p-3">
                         <div class="row" ng-init="selectedTestSetPage = 0">
                             <div class="w20p full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
