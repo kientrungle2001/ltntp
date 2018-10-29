@@ -18,16 +18,18 @@
 	</div>
 
 	<div class="practice-section container">
-		<div class="box-practice text-center" ng-repeat="subject in subjects">
-			<a href="/detail.php?subject_id={{subject.id}}" class="subjectclick" data-subject="{{subject.id}}" data-alias="{{subject.alias}}" data-class="5">
-				<div class="white text-uppercase relative">
-					<div class="full">
-						<img ng-src="http://s1.nextnobels.com{{subject.img}}" alt="{{translate(subject, 'category.name')}}" class=" img-fluid center-block">
+		<div class="row">
+			<div class="col-12 col-md-3 text-center" ng-repeat="subject in subjects">
+				<a href="/detail.php?subject_id={{subject.id}}" class="subjectclick" data-subject="{{subject.id}}" data-alias="{{subject.alias}}" data-class="5">
+					<div class="white text-uppercase relative">
+						<div class="full">
+							<img ng-src="http://s1.nextnobels.com{{subject.img}}" alt="{{translate(subject, 'category.name')}}" class=" img-fluid center-block">
+						</div>
+						<div class="top20 text-center full absolute">{{translate(subject, 'category.name')}}</div>
+						
 					</div>
-					<div class="top20 text-center full absolute">{{translate(subject, 'category.name')}}</div>
-					
-				</div>
-			</a>
+				</a>
+			</div>
 		</div>
 	</div>
 
