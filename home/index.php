@@ -69,7 +69,7 @@
 		</div>
 	</div>
 </div>		
-
+<img src="/assets/images/background2.png" alt="" class="full" />
 
 <!--end practice -->
 <div id="thithu" class="full">
@@ -107,9 +107,6 @@
 		</div>
 	</div>
 </div>	
-<img src="/assets/images/background2.png" alt="" class="full" />
-
-
 
 <!--end tonghop -->
 <div id="thithu" class="full">
