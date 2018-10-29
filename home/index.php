@@ -112,7 +112,7 @@
 <div id="thithu" class="full">
 	<div class="container">
 		<div class="text-center heading mt-2 mb-4 text-white">
-			Luyện Tiếng Anh
+			Luyện Tiếng Việt
 		</div>
 	</div>
 	<div class="container">
