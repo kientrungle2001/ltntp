@@ -1,2 +1,3 @@
-# ltnbk
-Luyện thi Nguyễn Bỉnh Khiêm
+# ltntp
+Luyện thi Nguyễn Tri Phương 
+http://api4.nextnobels.com  
