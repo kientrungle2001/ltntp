@@ -131,7 +131,7 @@ flApp.controller('HomeController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTestSets', 
 		data: {
-			categoryId: '1416',
+			categoryId: '1417',
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -146,7 +146,7 @@ flApp.controller('HomeController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTestSets', 
 		data: {
-			categoryId: '1414',
+			categoryId: '1413',
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -198,6 +198,10 @@ flApp.controller('HomeController', ['$scope', function($scope) {
 	};
 	$scope.selectTestSetPage = function (page) {
 		$scope.selectedTestSetPage = page;
+		$scope.$apply();
+	};
+	$scope.selectRealTestSetPage = function (page) {
+		$scope.selectedRealTestSetPage = page;
 		$scope.$apply();
 	};
 }]);

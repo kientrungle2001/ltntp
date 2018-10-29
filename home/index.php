@@ -81,11 +81,11 @@
 	<div class="container">
 		<div class="row" ng-init="selectedTestSetPage = 0">
 			<div class="box-thithu bg-white full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
-				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
+				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1417&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
 				<div class="box-body">
 
 					<div class="link-box text-center" ng-repeat="test in testSet.children | orderBy: 'ordering'">
-						<a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
+						<a href="/testSet.php?category_id=1417&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
 							{{translate(test, 'test.name')}}  
 							<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
 						</a>
@@ -116,13 +116,13 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="row" ng-init="selectedTestSetPage = 0">
-			<div class="box-thithu bg-white full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
-				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
+		<div class="row" ng-init="selectedRealTestSetPage = 0">
+			<div class="box-thithu bg-white full-xs" ng-repeat="testSet in realTestSets | orderBy: 'ordering'" ng-show="inPage($index, selectedRealTestSetPage, 15)">
+				<h3 class="text-center head-box"><a href="/testSet.php?category_id=1413&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a></h3>
 				<div class="box-body">
 
 					<div class="link-box text-center" ng-repeat="test in testSet.children | orderBy: 'ordering'">
-						<a href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
+						<a href="/testSet.php?category_id=1413&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
 							{{translate(test, 'test.name')}}  
 							<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
 						</a>
@@ -135,8 +135,8 @@
 				<nav aria-label="Navigation">
 					<ul class="pagination justify-content-center">
 						<li class="page-item" ng-repeat="page in range(1, totalPage(testSets.length, 15), 1)" 
-						ng-click="selectTestSetPage(page-1)"
-						ng-class="{'active': selectedTestSetPage == page-1}"
+						ng-click="selectRealTestSetPage(page-1)"
+						ng-class="{'active': selectedRealTestSetPage == page-1}"
 						><a href="#" class="page-link" onclick="return false;">{{page}}</a></li>
 					</ul>
 				</nav>
