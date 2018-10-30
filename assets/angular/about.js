@@ -39,15 +39,32 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTests', 
 		data: {
-			categoryId: '1412',
+			categoryId: '1417',
 			software: SOFTWARE,
 			site: SITE
 		},
 		dataType: 'json',
 		success: function(resp) {
-			$scope.tests = resp;
+			$scope.tests = buildBottomTree(resp);
 			$scope.$apply();
 		}
+		
+	});
+	$scope.tvTests = [];
+	jQuery.ajax({
+		type: 'post',
+		url: FL_API_URL +'/common/getTests', 
+		data: {
+			categoryId: '1413',
+			software: SOFTWARE,
+			site: SITE
+		},
+		dataType: 'json',
+		success: function(resp) {
+			$scope.tvTests = buildBottomTree(resp);
+			$scope.$apply();
+		}
+		
 	});
 	$scope.englishTests = [];
 	jQuery.ajax({
@@ -116,6 +133,10 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 		$scope.selectedTestPage = page;
 		$scope.$apply();
 	};
+	$scope.selectTvTestPage = function (page) {
+		$scope.selectedTvTestPage = page;
+		$scope.$apply();
+	};
 	$scope.selectTestSetPage = function (page) {
 		$scope.selectedTestSetPage = page;
 		$scope.$apply();
@@ -162,8 +183,7 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 		
 	}
 	$scope.paycard = {};
-	$scope.payCardFl =function(url){
-		
+	$scope.payCardFl =function(url){		
 		if(parseInt(sessionUserId) == 0 || sessionUserId ==''){
 			$scope.paycard.message ='Bạn phải đăng nhập mới được nạp thẻ';	
 			$scope.paycard.success = 0;	
@@ -175,29 +195,41 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 			}
 			$scope.paycard.userId = sessionUserId;	
 			$scope.paycard.username = sessionUsername;
-			$scope.paycard.software = SOFTWARE;	
-			$scope.paycard.site = SITE;
+			jQuery.post(url+'/3rdparty/captcha/check_session.php', $scope.paycard.captcha, function(dataResult) {
+				if(dataResult){
+					if($scope.paycard.captcha == dataResult){
+						jQuery.post(FL_API_URL+'/payment/payCard', $scope.paycard, function(dataResult) {
+						  	if(dataResult) {
+						  		if(parseInt(dataResult.result)== 1){
+						  			jQuery.post(url+'/update_paycard.php', dataResult, function(data) {
+									
+									});						
+									$scope.paycard.message = dataResult.string;
+									$scope.paycard.success = 1;
+									$scope.$apply();
+									
+						  		}else {
 
-			jQuery.post(FL_API_URL+'/payment/payCard', $scope.paycard, function(dataResult) {
-			  	if(dataResult) {
-			  		if(parseInt(dataResult.result)== 1){
-			  			jQuery.post(url+'/update_paycard.php', dataResult, function(data) {
-							
+						  			$scope.paycard.message = dataResult.string;	
+						  			$scope.paycard.success = 0;	
+						  			$scope.paycardCaptcha= '/3rdparty/captcha/random_image.php?t=' + (new Date()).getMilliseconds();
+						  			$scope.$apply();		  		
+								}
+						  	}				
 						});
-						$scope.paycard.message = dataResult.string;
-						$scope.paycard.success = 1;
+					}else {						
+						$scope.paycardCaptcha= '/3rdparty/captcha/random_image.php?t=' + (new Date()).getMilliseconds();
+						$scope.paycard.message = 'Mã bảo mật chưa đúng';	
+			  			$scope.paycard.success = 0;
 						$scope.$apply();
 						
-			  		}else {
-			  			$scope.paycard.message = dataResult.string;	
-			  			$scope.paycard.success = 0;	
-			  			$scope.$apply();		  		
 					}
-			  	}				
-			});			
+				}			
+			});
+						
 		}
 			
-	}
+	};
 	$scope.grade = window.localStorage.getItem('grade') || '5';
 	$scope.changeGrade = function() {
 		window.localStorage.setItem('grade', $scope.grade);

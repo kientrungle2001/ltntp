@@ -172,7 +172,7 @@
                     <div style="right: 0px !important; left: auto;" class="mega dropdown-menu  p-3">
                         <div class="row pl-3" ng-init="selectedTestPage = 0">
                             <div class="col-12 pl-0 col-md-2" ng-repeat="test in tests" ng-show="inPage($index, selectedTestPage, 30)">
-                            <a href="/test.php?test_id={{test.id}}&category_id=1412">
+                            <a href="/testSet.php?test_id={{test.id}}&category_id=1417">
                                 <div class="btn text-lta full mb-3 btn-primary">{{translate(test, 'test.name')}} {{test.trial? ' - Free': ''}}</div>
                             </a>
                             </div>
@@ -194,19 +194,20 @@
                 <li class="nav-item dropdown">
                     <a href="/#thithu" class="nav-link dropdown-toggle">Thi thử Tiếng Việt</a>
                     <div style="right: 0px !important; left: auto;" class="mega dropdown-menu  p-3">
-                        <div class="row" ng-init="selectedTestSetPage = 0">
-                            <div class="w20p full-xs" ng-repeat="testSet in testSets | orderBy: 'ordering'" ng-show="inPage($index, selectedTestSetPage, 15)">
-                                <a class="full btn btn-primary mb-3 text-lta" href="/testSet.php?category_id=1416&test_set_id={{testSet.id}}">{{translate(testSet, 'test.name')}}</a>
-                               
+                        <div class="row pl-3" ng-init="selectedTvTestPage = 0">
+                            <div class="col-12 pl-0 col-md-2" ng-repeat="test in tvTests" ng-show="inPage($index, selectedTvTestPage, 30)">
+                            <a href="/testSet.php?test_id={{test.id}}&category_id=1413">
+                                <div class="btn text-lta full mb-3 btn-primary">{{translate(test, 'test.name')}} {{test.trial? ' - Free': ''}}</div>
+                            </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 text-center">
                                 <nav aria-label="Navigation">
                                     <ul class="pagination text-lta justify-content-center">
-                                        <li class="page-item" ng-repeat="page in range(1, totalPage(testSets.length, 15), 1)" 
-                                        ng-click="selectTestSetPage(page-1)"
-                                        ng-class="{'active': selectedTestSetPage == page-1}"
+                                        <li class="page-item" ng-repeat="page in range(1, totalPage(tvTests.length, 30), 1)" 
+                                        ng-click="selectTvTestPage(page-1)"
+                                        ng-class="{'active': selectedTvTestPage == page-1}"
                                         ><a href="#" class="page-link" onclick="return false;">{{page}}</a></li>
                                     </ul>
                                 </nav>

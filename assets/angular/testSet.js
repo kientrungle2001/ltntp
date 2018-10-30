@@ -20,15 +20,32 @@ flApp.controller('TestSetController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTests', 
 		data: {
-			categoryId: '1412',
+			categoryId: '1417',
 			software: SOFTWARE,
 			site: SITE
 		},
 		dataType: 'json',
 		success: function(resp) {
-			$scope.tests = resp;
+			$scope.tests = buildBottomTree(resp);
 			$scope.$apply();
 		}
+		
+	});
+	$scope.tvTests = [];
+	jQuery.ajax({
+		type: 'post',
+		url: FL_API_URL +'/common/getTests', 
+		data: {
+			categoryId: '1413',
+			software: SOFTWARE,
+			site: SITE
+		},
+		dataType: 'json',
+		success: function(resp) {
+			$scope.tvTests = buildBottomTree(resp);
+			$scope.$apply();
+		}
+		
 	});
 	$scope.englishTests = [];
 	jQuery.ajax({
@@ -50,7 +67,7 @@ flApp.controller('TestSetController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTestSets', 
 		data: {
-			categoryId: '1416',
+			categoryId: '1417',
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -65,7 +82,7 @@ flApp.controller('TestSetController', ['$scope', function($scope) {
 		type: 'post',
 		url: FL_API_URL +'/common/getTestSets', 
 		data: {
-			categoryId: '1414',
+			categoryId: '1413',
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -95,6 +112,10 @@ flApp.controller('TestSetController', ['$scope', function($scope) {
 	};
 	$scope.selectTestPage = function (page) {
 		$scope.selectedTestPage = page;
+		$scope.$apply();
+	};
+	$scope.selectTvTestPage = function (page) {
+		$scope.selectedTvTestPage = page;
 		$scope.$apply();
 	};
 	$scope.selectTestSetPage = function (page) {

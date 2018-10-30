@@ -17,35 +17,52 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 		$scope.$apply();
 	}});
 	$scope.tests = [];
-	jQuery.ajax({
-		type: 'post',
-		url: FL_API_URL +'/common/getTests', 
-		data: {
-			categoryId: '1412',
-			software: SOFTWARE,
-			site: SITE
-		},
-		dataType: 'json',
-		success: function(resp) {
-			$scope.tests = resp;
-			$scope.$apply();
-		}
-	});
-	$scope.englishTests = [];
-	jQuery.ajax({
-		type: 'post',
-		url: FL_API_URL +'/common/getTests', 
-		data: {
-			categoryId: '1411',
-			software: SOFTWARE,
-			site: SITE
-		},
-		dataType: 'json',
-		success: function(resp) {
-			$scope.englishTests = resp;
-			$scope.$apply();
-		}
-	});
+jQuery.ajax({
+	type: 'post',
+	url: FL_API_URL +'/common/getTests', 
+	data: {
+		categoryId: '1417',
+		software: SOFTWARE,
+		site: SITE
+	},
+	dataType: 'json',
+	success: function(resp) {
+		$scope.tests = buildBottomTree(resp);
+		$scope.$apply();
+	}
+	
+});
+$scope.tvTests = [];
+jQuery.ajax({
+	type: 'post',
+	url: FL_API_URL +'/common/getTests', 
+	data: {
+		categoryId: '1413',
+		software: SOFTWARE,
+		site: SITE
+	},
+	dataType: 'json',
+	success: function(resp) {
+		$scope.tvTests = buildBottomTree(resp);
+		$scope.$apply();
+	}
+	
+});
+$scope.englishTests = [];
+jQuery.ajax({
+	type: 'post',
+	url: FL_API_URL +'/common/getTests', 
+	data: {
+		categoryId: '1411',
+		software: SOFTWARE,
+		site: SITE
+	},
+	dataType: 'json',
+	success: function(resp) {
+		$scope.englishTests = resp;
+		$scope.$apply();
+	}
+});
 	$scope.testSets = [];
 	jQuery.ajax({
 		type: 'post',
@@ -98,6 +115,18 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 		$scope.selectedTestPage = page;
 		$scope.$apply();
 	};
+	$scope.selectTvTestPage = function (page) {
+		$scope.selectedTvTestPage = page;
+		$scope.$apply();
+	};
+	/*$scope.selectEnglishTestPage = function(page) {
+		$scope.selectedEnglishTestPage = page;
+		$scope.$apply();
+	};
+	$scope.selectTestPage = function (page) {
+		$scope.selectedTestPage = page;
+		$scope.$apply();
+	};*/
 	$scope.selectTestSetPage = function (page) {
 		$scope.selectedTestSetPage = page;
 		$scope.$apply();
@@ -313,49 +342,7 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 		});
 	};
 	$scope.lessonPage(0);
-	// On luyen tong hop
-	$scope.testQuantity = 0;
-	jQuery.ajax({
-		type: 'post',
-		url: FL_API_URL +'/history/countTests', 
-		data: {
-			userId: sessionUserId,
-			categoryId: 1412,
-			software: SOFTWARE,
-			site: SITE
-		},
-		dataType: 'json',
-		success: function(resp) {
-			var quantity = Math.ceil(resp/20);
-		    var result= [];
-		    for(i =0; i< quantity; i++){
-		      result.push(i);
-		    }
-			$scope.testQuantity = result;
-			$scope.$apply();
-		}
-	});
-	$scope.historyTests = [];	
-	$scope.testPage = function(page){
-		$scope.testPageSelected = page;
-		jQuery.ajax({
-			type: 'post',
-			url: FL_API_URL +'/history/getTests', 
-			data: {
-				userId: sessionUserId,
-				categoryId: 1412,
-				numberPage: page,
-				software: SOFTWARE,
-				site: SITE
-			},
-			dataType: 'json',
-			success: function(resp) {
-				$scope.historyTests = resp;
-				$scope.$apply();
-			}
-		});
-	};
-	$scope.testPage(0);
+	
 	// On luyen tieng Anh
 	$scope.testEQuantity = 0;
 	jQuery.ajax({
@@ -406,7 +393,7 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 		url: FL_API_URL +'/history/countTests', 
 		data: {
 			userId: sessionUserId,
-			categoryId: 1416,
+			categoryId: 1417,
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -429,7 +416,7 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 			url: FL_API_URL +'/history/getTests', 
 			data: {
 				userId: sessionUserId,
-				categoryId: 1416,
+				categoryId: 1417,
 				numberPage: page,
 				software: SOFTWARE,
 				site: SITE	
@@ -449,7 +436,7 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 		url: FL_API_URL +'/history/countTests', 
 		data: {
 			userId: sessionUserId,
-			categoryId: 1414,
+			categoryId: 1413,
 			software: SOFTWARE,
 			site: SITE
 		},
@@ -472,7 +459,7 @@ flApp.controller('ProfileController', ['$scope', function($scope) {
 			url: FL_API_URL +'/history/getTests', 
 			data: {
 				userId: sessionUserId,
-				categoryId: 1414,
+				categoryId: 1413,
 				numberPage: page,
 				software: SOFTWARE,
 				site: SITE	

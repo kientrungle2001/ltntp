@@ -147,18 +147,14 @@
 				    <a class="nav-link active" id="luyentap-tab" data-toggle="tab" href="#luyentap" role="tab" aria-controls="luyentap" aria-selected="true">Luyện tập các môn</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link  id="tienganh-tab" data-toggle="tab" href="#tienganh" role="tab" aria-controls="tienganh" aria-selected="true">Ôn luyện tiếng Anh </a>
+				    <a class="nav-link  id="tienganh-tab" data-toggle="tab" href="#tienganh" role="tab" aria-controls="tienganh" aria-selected="true">Thi thử Tiếng Anh </a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link" id="deluyentap-tab" data-toggle="tab" href="#deluyentap" role="tab" aria-controls="deluyentap" aria-selected="false">Ôn luyện tổng hợp</a>
+				    <a class="nav-link" id="thithutoan-tab" data-toggle="tab" href="#thithutoan" role="tab" aria-controls="thithutoan" aria-selected="false">Thi thử Toán</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link" id="thithu-tab" data-toggle="tab" href="#thithu" role="tab" aria-controls="thithu" aria-selected="false">Thi thử Nguyễn Bỉnh Khiêm</a>
-				  </li>	
-				  
-				  <li class="nav-item">
-				    <a class="nav-link" id="testAll-tab" data-toggle="tab" href="#testAll" role="tab" aria-controls="tdn" aria-selected="false">Tất cả</a>
-				  </li>			  
+				    <a class="nav-link" id="thithutiengviet-tab" data-toggle="tab" href="#thithutiengviet" role="tab" aria-controls="thithutiengviet" aria-selected="false">Thi thử Tiếng Việt</a>
+				  </li>	  
 				</ul>
 			</div>
 			
@@ -206,46 +202,7 @@
 					  </ul>
 					</nav>
 			  	</div>
-			  	<div class="tab-pane fade bg-light" id="deluyentap" role="tabpanel" aria-labelledby="deluyentap-tab">
-			  		Ôn luyện tổng hợp
-			  		<table class="table table-bordered">
-					  <thead>
-					    <tr>
-					      <th scope="col">#</th>
-					      <th scope="col">Đề thi</th>					      
-					      <th scope="col">Điểm</th>
-					      
-					      <th scope="col">Thời gian làm bài</th>
-					      <th scope="col">Ngày</th>
-					      
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr ng-repeat="test in historyTests">
-					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{test.id}}">{{test.name}}</a></td>
-					      <td ng-bind="test.mark"></td>
-					      
-					      <td ng-bind="test.duringTime"></td>
-					      <td >{{test.startTime| date:'MM/dd/yyyy @ h:mma'}}</td>
-					      
-					    </tr>					    
-					    
-					  </tbody>
-					</table>
-					<nav aria-label="...">
-					  <ul class="pagination">
-					    <li class="page-item " ng-class="{'active': testPageSelected === 0}">					      
-					      	<a class="page-link"  ng-click="testPage(0)">Trang đầu</a>      
-					  	  
-					    </li>
-					    <li class="page-item"  ng-class="{'active': testPageSelected === testitem}" ng-repeat="testitem in testQuantity">
-					    	<a class="page-link"  ng-click="testPage(testitem)">{{testitem+1}}</a>
-					    </li>
-					    
-					  </ul>
-					</nav>
-			  	</div>
+			  	
 
 			  	<div class="tab-pane fade bg-light" id="tienganh" role="tabpanel" aria-labelledby="tienganh-tab">
 			  		Ôn luyện tiếng Anh
@@ -288,15 +245,14 @@
 					</nav>
 			  	</div>
 
-			  	<div class="tab-pane fade bg-light" id="thithu" role="tabpanel" aria-labelledby="thithu-tab" >
-			  		Đề thi thử
+			  	<div class="tab-pane fade bg-light" id="thithutoan" role="tabpanel" aria-labelledby="thithutoan-tab" >
+			  		Đề thi thử Toán
 			  		<table class="table table-bordered">
 					  <thead>
 					    <tr>
 					      <th scope="col">#</th>
 					      <th scope="col">Đề thi</th>					      
-					      <th scope="col">Điểm</th>
-					      
+					      <th scope="col">Điểm</th>					      
 					      <th scope="col">Thời gian làm bài</th>
 					      <th scope="col">Ngày</th>
 					      
@@ -329,10 +285,8 @@
 					</nav>
 				</div>
 
-				
-
-				<div class="tab-pane fade bg-light" id="testAll" role="tabpanel" aria-labelledby="testAll-tab" >
-			  		Tổng hợp các bài thi
+				<div class="tab-pane fade bg-light" id="thithutiengviet" role="tabpanel" aria-labelledby="thithutiengviet-tab" >
+			  		Đề thi thử
 			  		<table class="table table-bordered">
 					  <thead>
 					    <tr>
@@ -346,13 +300,13 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr ng-repeat="testAll in testAlls">
+					    <tr ng-repeat="tdnTest in tdnRealTests">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{testAll.id}}">{{testAll.name}}</a></td>
-					      <td ng-bind="testAll.mark"></td>
+					      <td><a href="/book.php?id={{tdnTest.id}}">{{tdnTest.name}}</a></td>
+					      <td ng-bind="tdnTest.mark"></td>
 					      
-					      <td ng-bind="testAll.duringTime"></td>
-					      <td >{{testAll.startTime| date:'MM/dd/yyyy @ h:mma'}}</td>
+					      <td ng-bind="tdnTest.duringTime"></td>
+					      <td >{{tdnTest.startTime| date:'MM/dd/yyyy @ h:mma'}}</td>
 					      
 					    </tr>					    
 					    
@@ -360,17 +314,20 @@
 					</table>
 					<nav aria-label="...">
 					  <ul class="pagination">
-					    <li class="page-item" ng-class="{'active': testAllPageSelected === 0}">					      
-					      	<a class="page-link"  ng-click="testAllPage(0)">Trang đầu</a>      
+					    <li class="page-item" ng-class="{'active': tdnRealTestPageSelected === 0}">					      
+					      	<a class="page-link"  ng-click="tdnRealTestPage(0)">Trang đầu</a>      
 					  	  
 					    </li>
-					    <li class="page-item" ng-class="{'active': testAllPageSelected === testAllitem}" ng-repeat="testAllitem in testAllQuantity">
-					    	<a class="page-link"   ng-click="testAllPage(testAllitem)">{{testAllitem +1}}</a>
+					    <li class="page-item" ng-class="{'active': tdnRealTestPageSelected === tdnRealTestitem}" ng-repeat="tdnRealTestitem in tdnRealTestQuantity">
+					    	<a class="page-link"   ng-click="tdnRealTestPage(tdnRealTestitem)">{{tdnRealTestitem +1}}</a>
 					    </li>					   
 					    
 					  </ul>
 					</nav>
 				</div>
+				
+
+				
 				
 			</div>
 		</div>

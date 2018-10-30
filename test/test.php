@@ -10,8 +10,8 @@
 					</div>
 					
 				  	<ul class="list-group full vocabulary">
-					  <li class="list-group-item" ng-repeat="test in tests" ng-show="language=='vn'" ng-class="{'active sub-active': test==selectedTest}"><a href="#" ng-click="selectTest(test)" onclick="return false;">{{test.name || test.name_en}} {{test.trial? ' - Free': ''}}</a></li>
-					  <li class="list-group-item" ng-repeat="test in tests" ng-show="language!='vn'" ng-class="{'active sub-active': test==selectedTest}"><a href="#" ng-click="selectTest(test)" onclick="return false;">{{test.name_en || test.name}} {{test.trial? ' - Free': ''}}</a></li>
+					  <li class="list-group-item" ng-repeat="test in testAlls" ng-show="language=='vn'" ng-class="{'active sub-active': test==selectedTest}"><a href="#" ng-click="selectTest(test)" onclick="return false;">{{test.name || test.name_en}} {{test.trial? ' - Free': ''}}</a></li>
+					  <li class="list-group-item" ng-repeat="test in testAlls" ng-show="language!='vn'" ng-class="{'active sub-active': test==selectedTest}"><a href="#" ng-click="selectTest(test)" onclick="return false;">{{test.name_en || test.name}} {{test.trial? ' - Free': ''}}</a></li>
 					</ul>
 				</div>
 				

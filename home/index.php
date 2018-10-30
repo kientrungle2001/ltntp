@@ -134,7 +134,7 @@
 			<div class="col-12 text-center">
 				<nav aria-label="Navigation">
 					<ul class="pagination justify-content-center">
-						<li class="page-item" ng-repeat="page in range(1, totalPage(testSets.length, 15), 1)" 
+						<li class="page-item" ng-repeat="page in range(1, totalPage(realTestSets.length, 15), 1)" 
 						ng-click="selectRealTestSetPage(page-1)"
 						ng-class="{'active': selectedRealTestSetPage == page-1}"
 						><a href="#" class="page-link" onclick="return false;">{{page}}</a></li>
