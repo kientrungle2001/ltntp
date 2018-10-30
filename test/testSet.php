@@ -50,8 +50,8 @@
 						<div class="do-practice full" ng-show="step=='doTest'">
 							<div class="text-center">
 								<h2>{{translate(selectedTestSet, 'test.name')}} - {{translate(selectedTest, 'test.name')}}</h2>
-								<p><strong>Số lượng câu hỏi</strong>: {{total_question || 24}}</p>
-								<p><strong>Thời gian làm bài</strong>: {{total_time || 45}} phút</p>
+								<p><strong>Số lượng câu hỏi</strong>: {{selectedTest.quantity || 24}}</p>
+								<p><strong>Thời gian làm bài</strong>: {{selectedTest.time || 45}} phút</p>
 								<div  class="time">
 									<img src="http://fulllook.com.vn/Themes/Songngu3/skin/images/watch.png">
 									<div id="countdown" class="num-time robotofont" style="color: rgb(255, 0, 0);">{{remaining.minutes || 45}}:{{remaining.seconds || 0}}</div>
