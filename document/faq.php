@@ -25,7 +25,7 @@ if(isset($_SESSION['username'])){
 				<div class="col-12 col-md-8">
 					
 					<div class="faq">
-						<h4 class="text-center">Hỏi đáp Kinh Nghiệm Ôn thi vào trường Trần Đại Nghĩa</h4>
+						<h4 class="text-center">Hỏi đáp Kinh Nghiệm Ôn thi vào trường Nguyễn Tri Phương</h4>
 						<form role="form" id="createQuestions" method="post" >
 							<input type="hidden" id="userId" name="userId" value="<?=$userId;?>">
 							<input type="hidden"  id="username" name="username" value="<?=$userName;?>">

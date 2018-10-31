@@ -264,9 +264,9 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 	};
 	
 	$scope.tabs = {
-		proposal: '- Ôn tập, mở rộng kiến thức và đánh giá năng lực toàn diện cho học sinh tiểu học qua các bài luyện tập và hệ thống đề thi thử bằng Tiếng Anh. <br>\
-- Phát triển năng lực toàn diện của học sinh :<br>\
-+ Khả năng đọc hiểu tiếng Anh<br>\
+		proposal: '- Ôn tập, mở rộng kiến thức và đánh giá năng lực toán, tiếng Việt, tiếng Anh cho học sinh tiểu học qua hệ thống bài luyện tập và hệ thống đề thi thử . <br>\
+- Giúp ôn luyện vào lớp 6 Nguyễn Tri Phương ngay từ lớp 4 :<br>\
++ Phát triển khả năng đọc hiểu tiếng Anh<br>\
 + Năng lực tư duy, khả năng phân tích và phán đoán.<br>\
 + Khả năng diễn đạt<br>\
 + Năng lực vận dụng khoa học và hiểu biết xã hội vào cuộc sống.<br>',
@@ -305,45 +305,29 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 						<td><b>1.</b></td>\
 						<td><b>Phần Luyện tập các môn</b></td>\
 						<td>\
-						- <b>Hàng ngàn câu hỏi trắc nghiệm các môn học</b> : Toán, Khoa học, Lịch sử, Địa lí… bằng tiếng Anh để ôn tập kiến thức, đánh giá năng lực và rèn luyện tư duy cho HS.<br>\
-						- Hệ thống câu hỏi qua các <b>bài nghe, bài quan sát (các tranh ảnh, video) đa dạng về chủ đề</b> dựa trên nền kiến thức các môn học và sự hiểu biết của HS bậc tiểu học. <br>\
-						- Hơn 2000 từ vựng chuyên ngành được phân theo các chuyên đề của từng môn học.<br>\
+						- <b>Hàng ngàn câu hỏi trắc nghiệm </b> : Toán, tiếng Việt, tiếng Anh.<br>\
 						</td>\
 					</tr>\
 					<tr>\
 						<td><b>2.</b></td>\
-						<td><b>Phần Ôn luyện tiếng Anh</b></td>\
+						<td><b>Phần thi thử tiếng Anh vào Nguyễn Tri Phương</b></td>\
 						<td>\
-						- <b> Gồm 100 đề ôn tập ngữ pháp tiếng Anh </b> tích hợp với các kiến thức hiểu biết xã hội\
+						- <b> Gồm 50 đề : </b>mỗi đề 25 câu theo dạng đề Nguyễn Tri Phương \
 						</td>\
 					</tr>\
 					\
 					<tr>\
 						<td><b>3.</b></td>\
-						<td><b>Phần Ôn luyện tổng hợp</b></td>\
+						<td><b>Phần thi thử Toán vào Nguyễn Tri Phương</b></td>\
 						<td>\
-						- <b>Là hệ thống gồm 34 đề </b> ,<b>tổng hợp kiến thức các môn học</b>, giúp học sinh làm quen với các dạng đề thi, ôn luyện kiến thức tổng hợp.	\
+						- <b> Gồm 50 đề : </b>trong đó mỗi đề sẽ có 16 câu hỏi trắc nghiệm và 4 câu tự luận theo cấu trúc đề Nguyễn Tri Phương \
 						</td>\
 					</tr>\
 					<tr>\
 						<td><b>4.</b></td>\
-						<td><b>Phần Thi thử Nguyễn Bỉnh Khiêm</b></td>\
+						<td><b>Phần thi thử tiếng Việt vào Nguyễn Tri Phương</b></td>\
 						<td>\
-						- Bao gồm <b> 30 đề thi Trắc nghiệm và 30 đề Tự luận bám sát cấu trúc đề khảo sát vào trường Nguyễn Bỉnh Khiêm </b>.	\
-						\
-						</td>\
-					</tr>\
-					<tr>\
-						<td><b>5.</b></td>\
-						<td><b>Kinh nghiệm ôn thi</b></td>\
-						<td>\
-						Gồm nhiều nội dung :<br>\
-						- Cung cấp <b>Tài liệu tham khảo các môn học</b>:<br>\
-						+ Mỗi môn học đều có các bài đọc tham khảo bằng tiếng Anh và các câu hỏi hỗ trợ ôn tập kiến thức các thức các môn học bằng tiếng Việt.\
-						+ Đặc biệt, cung cấp hệ thống từ vựng cơ bản sắp xếp theo các chủ đề.\
-						- Trao đổi các <b>kinh nghiệm ôn thi</b> vào trường Nguyễn Bỉnh Khiêm (Mục hỏi đáp kinh nghiệm ôn thi).\
-\
-\
+						- <b> Gồm 50 đề : </b>trong đó mỗi đề sẽ có 20 câu hỏi trắc nghiệm và 1 câu tự luận viết bài văn \
 						</td>\
 					</tr>\
 					\
@@ -351,16 +335,11 @@ flApp.controller('AboutController', ['$scope', function($scope) {
 				</tbody></table>',
 
 		advantage: '<ul class="pd-40 list-unstyled left35">\
-				    <li>- Học sinh dễ dàng học từ vựng qua các loại game.</li>\
+				    <li>- Tra cứu từ điển Anh Việt ngay trong phần mềm.</li>\
 \
-					<li>- Chấm điểm và xếp hạng học sinh.</li>\
+					<li>- Tất cả các câu hỏi luyện tập và đề thi thử Toán, Tiếng Việt đều có đáp án, lý giải.</li>\
 \
-					<li>- Tra cứu từ điển Anh Việt ngay trong phần mềm.</li>\
-\
-					<li>- Tất cả các câu hỏi luyện tập và đề thi thử đều có đáp án, lý giải.</li>\
-\
-					<li>-Sản phẩm luôn luôn được nâng cấp, cập nhật cả về số lượng câu hỏi và dạng bài ôn tập.</li>\
-				</ul>',
+					</ul>',
 
 		guide: ''
 	};

@@ -4,9 +4,10 @@
 		<div class="main-shadow full p-3">
 			<div class="mb-4">
 				<h2 class="text-center"><a href="">Fulllook</a></h2>
-				Full Look là phần mềm khảo sát và năng lực toàn diện bằng tiếng Anh cho học sinh tiểu học.
-				Sản phẩm này hữu ích cho học sinh tham gia các kỳ thi: Kỳ khảo sát năng lực vào lớp 6
-				Trường THCS Chuyên Trần Đại Nghĩa, kỳ thi lấy chứng chỉ Flyer Cambridge hay kỳ thi IOE toàn quốc...
+				<h4 class="text-center"><a href="">(Phiên bản ôn luyện vào lớp 6 Trường Nguyễn Tri Phương)</a></h4>
+				Full Look là phần mềm khảo sát và phát triển năng lực dành cho học sinh tiểu học.
+				Phần mềm hữu ích cho các kỳ thi: Kỳ khảo sát năng lực vào lớp 6
+				Trường Nguyễn Tri Phương, kỳ thi lấy chứng chỉ Flyer Cambridge hay kỳ thi IOE, VIO toàn quốc...
 			</div>
 			
 
